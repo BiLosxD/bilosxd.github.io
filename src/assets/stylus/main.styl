@@ -282,6 +282,42 @@ a
             z-index: 1
             background-color: rgba(255, 255, 255, 0.15)
             animation: slide_from_right 1.5s
+        .overlay
+            position: absolute
+            top: 50%
+            left: 0
+            right: 0
+            z-index: 7
+            text-align: center
+            transform: translateY(-50%)
+            h2
+                montserrat(120px, true, 'bold')
+                color: $w
+                animation: slide_from_left 1s
+            h3
+                montserrat(60px, true, 'bold')
+                color: $w
+                animation: slide_from_right 1.5s
+            .default_btn
+                margin-top: 50px
+                animation: slide_from_bottom 1.5s
+
+.default_btn
+    display: inline-block
+    padding: 20px
+    montserrat(16px, true, 'medium')
+    color: $w
+    background-color: $bg
+    border: 2px solid $bg
+    width: auto
+    border-radius: 0px
+    cursor: pointer
+    transition: .3s ease-in-out
+    &:hover
+        border-radius: 20px 0 20px 0
+        color: $bg
+        background-color: $g
+        transition: .3s ease-in-out
 
 /**
  * Animation */
@@ -407,4 +443,14 @@ a
 	to {
 		opacity: 1
         transform: translateX(0px)
+    }
+
+@keyframes slide_from_bottom
+	from {
+		opacity: 0
+        transform: translateY(100px)
+    }
+	to {
+		opacity: 1
+        transform: translateY(0px)
     }

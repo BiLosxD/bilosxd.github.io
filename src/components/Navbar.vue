@@ -13,10 +13,10 @@
 		<div :class="`nav_parent ${(toggledBurger) ? 'opened' : ''}`">
 			<ul itemscope itemtype="https://schema.org/SiteNavigationElement" class="nav_list">
 				<li class="list_item">
-					<div @click="toggleBurger()" class="item_link">Home</div>
+					<div @click="toggleBurger('#home')" class="item_link">Home</div>
 				</li>
 				<li class="list_item">
-					<div @click="toggleBurger()" class="item_link">About</div>
+					<div @click="toggleBurger('#about')" class="item_link">About</div>
 				</li>
 				<li class="list_item">
 					<div @click="toggleBurger()" class="item_link">Portfolio</div>
@@ -52,14 +52,14 @@
 			}
 		},
 		methods: {
-			toggleBurger () {
+			toggleBurger (id = null) {
 				const me = this
 				me.toggledBurger ^= true
-				// if (me.toggledBurger) {
-				// 	document.body.classList.add('no_scroll')
-				// } else {
-				// 	document.body.classList.remove('no_scroll')
-				// }
+				if (id != null) {
+					me.$scrollTo(`${id}`, {
+						offset: -250
+					})
+				}
 			}
 		}
 	}

@@ -44,6 +44,39 @@ Vue.config.productionTip = false
 
 Vue.mixin({
     methods: {
+        scrollAnimate (elementNames) {
+            elementNames.forEach((elementName, elementIndex) => {
+                if (elementName.single) {
+                    let element = document.querySelector(elementName.target)
+                    if (element && !element.classList.contains('ov')) {
+                        let bounding = element.getBoundingClientRect()
+                        if (bounding.bottom > 0 &&
+                            bounding.right > 0 &&
+                            bounding.left < (window.innerWidth || document.documentElement.clientWidth) - 50 &&
+                            bounding.top < (window.innerHeight || document.documentElement.clientHeight) - 50) {
+                            setTimeout(() => {
+                                element.classList.add('ov')
+                            }, 350 * elementIndex)
+                        }
+                    }
+                } else {
+                    let elements = document.querySelectorAll(elementName.target)
+                    elements.forEach((element, elementIndex) => {
+                        if (element && !element.classList.contains('ov')) {
+                            let bounding = element.getBoundingClientRect()
+                            if (bounding.bottom > 0 &&
+                                bounding.right > 0 &&
+                                bounding.left < (window.innerWidth || document.documentElement.clientWidth) - 50 &&
+                                bounding.top < (window.innerHeight || document.documentElement.clientHeight) - 50) {
+                                setTimeout(() => {
+                                    element.classList.add('ov')
+                                }, 350 * elementIndex)
+                            }
+                        }
+                    })
+                }
+            })
+        },
         loading (status) {
             const me = this
             if (status) {

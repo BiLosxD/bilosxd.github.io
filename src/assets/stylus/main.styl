@@ -270,18 +270,20 @@ a
             right: 0
             bottom: 0
             z-index: 0
-            background-color: $g_alt
+            background-image: linear-gradient(to right, $g_alt, $g)
             animation: slide_from_left 1s
         &::after
             content: ''
             position: absolute
-            top: 0
+            top: 50%
             left: 50%
-            bottom: 0
-            width: 100%
+            width: 800px
+            height: 800px
             z-index: 1
+            border-radius: 50%
             background-color: rgba(255, 255, 255, 0.15)
-            animation: slide_from_right 1.5s
+            transform: translate(-50%, -50%)
+            animation: slide_from_bottom 2s
         .overlay
             position: absolute
             top: 50%
@@ -301,6 +303,12 @@ a
             .default_btn
                 margin-top: 50px
                 animation: slide_from_bottom 1.5s
+
+#wave
+    position: absolute
+    bottom: 0
+    width: 100%
+    height: auto
 
 .default_btn
     display: inline-block
@@ -424,6 +432,14 @@ a
         transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
     }
 }
+
+@keyframes fade
+	from {
+		opacity: 0
+    }
+	to {
+		opacity: 1
+    }
 
 @keyframes slide_from_left
 	from {

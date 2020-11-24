@@ -1,6 +1,7 @@
 <template>
     <div id="home">
         <h1 class="no_font">BRSTAMARIA</h1>
+        <!-- Banner -->
         <section id="banner">
             <div class="overlay">
                 <h2>Welcome</h2>
@@ -9,60 +10,38 @@
             </div>
             <div id="wave"></div>
         </section>
+        <!-- About -->
         <section id="about">
             <div class="header">
                 <h2>About Me</h2>
             </div>
             <div class="content">
                 <div class="left">
-                    <div class="violator">Check me out!</div>
                     <img class="front" src="/static/ako.jpg" />
-                    <img class="back" src="/static/ako.jpg" />
+                </div>
+                <div class="right">
                     <div class="text">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </div>
-                </div>
-                <div class="right">
-                    <div class="header_right">
-                        <h2>Skills</h2>
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
-                    </div>
-                    <div class="content_right">
+                    <div class="skills">
                         <ul>
-                            <li>
-                                <div class="list_item">Nuxt JS</div>
-                            </li>
-                            <li>
-                                <div class="list_item">Laravel</div>
-                            </li>
-                            <li>
-                                <div class="list_item">PHP</div>
-                            </li>
-                            <li>
-                                <div class="list_item">Javascript</div>
-                            </li>
-                            <li>
-                                <div class="list_item">jQuery</div>
-                            </li>
-                            <li>
-                                <div class="list_item">MySQL</div>
-                            </li>
-                            <li>
-                                <div class="list_item">Drupal</div>
-                            </li>
-                            <li>
-                                <div class="list_item">CSS/Stylus/SCSS/SASS</div>
-                            </li>
-                            <li>
-                                <div class="list_item">AWS</div>
-                            </li>
-                            <li>
-                                <div class="list_item">npm</div>
+                            <li v-for="(data, key) in skills" :key="key">
+                                <div class="list_item">{{ data }}</div>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
+        </section>
+        <!-- Portfolio -->
+        <section id="portfolio">
+            <div class="header">
+                <h2>My Portfolio</h2>
+            </div>
+            <div class="content">
+
+            </div>
+            <div id="wave"></div>
         </section>
     </div>
 </template>
@@ -85,10 +64,15 @@
                         single: true
                     },
                     {
-                        target: '#about .content .right .content_right ul li',
+                        target: '#about .content .right .skills ul li',
                         single: false
-                    }
-                ]
+                    },
+                    {
+                        target: '#portfolio .header h2',
+                        single: true
+                    },
+                ],
+                skills: ['Web Page Animation & Optimization', 'CSS, Stylus, Sass, Scss, Less', 'Javascript (ES5, ES6), jQuery', 'Vue.js, Nuxt.js, Adonis.js', 'API Integration (axios)', 'PHP', 'Laravel', 'Drupal', 'SEO', 'Linux (Ubuntu, CentOS)', 'SSH', 'AWS', 'NGINX, APACHE', 'MySQL', 'GIT']
             }
         },
         methods: {

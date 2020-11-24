@@ -19,7 +19,7 @@
 					<div @click="toggleBurger('#about')" class="item_link">About</div>
 				</li>
 				<li class="list_item">
-					<div @click="toggleBurger()" class="item_link">Portfolio</div>
+					<div @click="toggleBurger('#portfolio')" class="item_link">Portfolio</div>
 				</li>
 				<li class="list_item">
 					<div @click="toggleBurger()" class="item_link">Contact</div>
@@ -57,7 +57,7 @@
 				me.toggledBurger ^= true
 				if (id != null) {
 					me.$scrollTo(`${id}`, {
-						offset: -250
+						offset: 0
 					})
 				}
 			}

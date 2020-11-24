@@ -45,6 +45,7 @@ Vue.config.productionTip = false
 Vue.mixin({
     methods: {
         scrollAnimate (elementNames) {
+            let ctr = 0
             elementNames.forEach((elementName, elementIndex) => {
                 if (elementName.single) {
                     let element = document.querySelector(elementName.target)
@@ -56,7 +57,8 @@ Vue.mixin({
                             bounding.top < (window.innerHeight || document.documentElement.clientHeight) - 50) {
                             setTimeout(() => {
                                 element.classList.add('ov')
-                            }, 350 * elementIndex)
+                                ctr += 1
+                            }, 250 * ctr)
                         }
                     }
                 } else {
@@ -70,7 +72,7 @@ Vue.mixin({
                                 bounding.top < (window.innerHeight || document.documentElement.clientHeight) - 50) {
                                 setTimeout(() => {
                                     element.classList.add('ov')
-                                }, 350 * elementIndex)
+                                }, 250 * elementIndex)
                             }
                         }
                     })
